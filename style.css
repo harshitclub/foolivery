@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   font-family: "Inter", sans-serif;
 }
@@ -141,6 +145,21 @@ header nav .menu ul li a {
 
 .categories .catContainer .catBoxes .catBox {
   width: calc(100% / 6);
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.3rem;
+}
+
+.categories .catContainer .catBoxes .catBox::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+  border-radius: 0.3rem;
+  z-index: 0;
 }
 
 .categories .catContainer .catBoxes .catBox img {
@@ -151,6 +170,105 @@ header nav .menu ul li a {
 }
 
 .categories .catContainer .catBoxes .catBox .catBoxContent {
-  margin: -3.5rem 0 0 1rem;
+  position: relative;
+  margin: -3.5rem 0 0.5rem 1rem;
   color: #fff;
+}
+
+.topRR {
+  padding: 5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9fafc;
+}
+
+.topRR .topRRContainer {
+  width: 80%;
+}
+
+.topRR .topRRContainer h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.topRR .topRRContainer .topRRDesc {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin: 0 0 2rem 0;
+}
+
+.topRR .topRRContainer .topRRBoxes {
+  display: flex;
+  gap: 2rem;
+}
+
+.topRR .topRRContainer .topRRBoxes .topRRBoxesLeft {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.topRR .topRRContainer .topRRBoxes .topRRBoxesRight {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.topRRBox {
+  display: flex;
+  gap: 2rem;
+  background-color: #fff;
+  border-radius: 0.3rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.topRRBox .topRRBoxLeft {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 0.3rem;
+}
+
+.topRRBox .topRRBoxLeft img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.3rem;
+  transform: scale(1.1);
+  transition: 0.3s all ease-in-out;
+}
+
+.topRRBox .topRRBoxLeft img:hover {
+  transform: scale(1);
+}
+
+.topRRBox .topRRBoxRight {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.topRRBox .topRRBoxRight span {
+  font-style: italic;
+  color: #000;
+}
+
+.topRRBox .topRRBoxRight h3 {
+  color: #000;
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+.topRRBox .topRRBoxRight p {
+  color: grey;
+  margin: 0 0 0.5rem 0;
+}
+
+.topRRBox .topRRBoxRight small {
+  color: black;
 }
