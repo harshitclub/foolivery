@@ -272,3 +272,51 @@ header nav .menu ul li a {
 .topRRBox .topRRBoxRight small {
   color: black;
 }
+
+.startNow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9fafc;
+}
+
+.startNow .snContainer {
+  width: 80%;
+  background: linear-gradient(rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.3)),
+    url(./assets/startNow.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 25rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5rem;
+  color: #fff;
+}
+
+.startNow .snContainer h4 {
+  margin: 0 0 1rem 0;
+}
+
+.startNow .snContainer h2 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+}
+
+.startNow .snContainer p {
+  font-size: 2rem;
+  margin: 0 0 1rem 0;
+}
+
+.startNow .snContainer a button {
+  display: inline;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  background: #e54750;
+  border: none;
+  cursor: pointer;
+  color: white;
+  border-radius: 0.3rem;
+}
