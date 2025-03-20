@@ -278,6 +278,7 @@ header nav .menu ul li a {
   align-items: center;
   justify-content: center;
   background-color: #f9fafc;
+  padding: 0 0 5rem 0;
 }
 
 .startNow .snContainer {
@@ -312,6 +313,85 @@ header nav .menu ul li a {
 
 .startNow .snContainer a button {
   display: inline;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  background: #e54750;
+  border: none;
+  cursor: pointer;
+  color: white;
+  border-radius: 0.3rem;
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0;
+}
+
+.cta .ctaContainer {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  gap: 8rem;
+}
+
+.cta .ctaContainer .ctaLeft {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.ctaBox {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.ctaBox .ctaBoxChild {
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.ctaBox .ctaBoxChild h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 1rem 0 1rem 0;
+}
+
+.ctaBox .ctaBoxChild p {
+  font-weight: 300;
+}
+
+.cta .ctaContainer .ctaRight {
+  width: 35%;
+}
+
+.cta .ctaContainer .ctaRight h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+}
+
+.cta .ctaContainer .ctaRight p {
+  font-size: 1.3rem;
+  margin: 0 0 1rem 0;
+  font-weight: 300;
+  text-align: justify;
+}
+
+.cta .ctaContainer .ctaRight small {
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
+.cta .ctaContainer .ctaRight a {
+  display: inline-block;
+  margin: 1.5rem 0 0 0;
   font-size: 1rem;
   padding: 1rem 2rem;
   background: #e54750;
