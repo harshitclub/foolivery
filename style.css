@@ -12,6 +12,14 @@
   --fontSizeH2: 2rem;
 }
 
+/* global classes */
+.flex {
+  display: flex;
+}
+.alignCenter {
+  align-items: center;
+}
+
 a {
   text-decoration: none;
 }
@@ -22,22 +30,16 @@ body {
 
 header {
   height: 5rem;
-  display: flex;
-  align-items: center;
   justify-content: center;
   background-color: #fbf3cc;
 }
 
 header nav {
-  display: flex;
-  align-items: center;
   justify-content: space-between;
   width: var(--myWidth);
 }
 
 header nav .logo {
-  display: flex;
-  align-items: center;
   justify-content: flex-start;
 }
 
@@ -47,7 +49,6 @@ header nav .logo img {
 }
 
 header nav .menu ul {
-  display: flex;
   list-style: none;
   gap: 2rem;
   font-weight: 500;
@@ -60,8 +61,6 @@ header nav .menu ul li a {
 
 .hero {
   height: 60vh;
-  display: flex;
-  align-items: center;
   justify-content: center;
   background-color: #fbf3cc;
   background-image: url(./assets/heroImage.svg);
@@ -120,8 +119,6 @@ header nav .menu ul li a {
 
 .categories {
   height: 60vh;
-  display: flex;
-  align-items: center;
   justify-content: center;
 }
 
@@ -143,7 +140,6 @@ header nav .menu ul li a {
 }
 
 .categories .catContainer .catBoxes {
-  display: flex;
   gap: 2rem;
   justify-content: center;
   align-items: center;
@@ -183,8 +179,6 @@ header nav .menu ul li a {
 
 .topRR {
   padding: 5rem 0;
-  display: flex;
-  align-items: center;
   justify-content: center;
   background-color: #f9fafc;
 }
@@ -206,26 +200,22 @@ header nav .menu ul li a {
 }
 
 .topRR .topRRContainer .topRRBoxes {
-  display: flex;
   gap: 2rem;
 }
 
 .topRR .topRRContainer .topRRBoxes .topRRBoxesLeft {
   width: 50%;
-  display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
 .topRR .topRRContainer .topRRBoxes .topRRBoxesRight {
   width: 50%;
-  display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
 .topRRBox {
-  display: flex;
   gap: 2rem;
   background-color: #fff;
   border-radius: 0.3rem;
@@ -234,8 +224,6 @@ header nav .menu ul li a {
 
 .topRRBox .topRRBoxLeft {
   width: 30%;
-  display: flex;
-  align-items: center;
   justify-content: center;
   overflow: hidden;
   border-radius: 0.3rem;
@@ -255,7 +243,6 @@ header nav .menu ul li a {
 
 .topRRBox .topRRBoxRight {
   width: 70%;
-  display: flex;
   flex-direction: column;
   justify-content: center;
 }
@@ -280,8 +267,6 @@ header nav .menu ul li a {
 }
 
 .startNow {
-  display: flex;
-  align-items: center;
   justify-content: center;
   background-color: #f9fafc;
   padding: 0 0 5rem 0;
@@ -329,29 +314,22 @@ header nav .menu ul li a {
 }
 
 .cta {
-  display: flex;
-  align-items: center;
   justify-content: center;
   padding: 5rem 0;
 }
 
 .cta .ctaContainer {
   width: var(--myWidth);
-  display: flex;
-  align-items: center;
   gap: 8rem;
 }
 
 .cta .ctaContainer .ctaLeft {
   width: 50%;
-  display: flex;
-  align-items: center;
   justify-content: center;
   gap: 2rem;
 }
 
 .ctaBox {
-  display: flex;
   flex-direction: column;
   gap: 2rem;
 }
@@ -409,8 +387,6 @@ header nav .menu ul li a {
 
 footer {
   background-color: #f6f1d3;
-  display: flex;
-  align-items: center;
   justify-content: center;
   padding: 5rem 0;
 }
@@ -427,7 +403,6 @@ footer ul li a {
 }
 
 footer .fContainer {
-  display: flex;
   width: var(--myWidth);
   justify-content: space-between;
 }
