@@ -6,6 +6,12 @@
   box-sizing: border-box;
 }
 
+:root {
+  --myWidth: 80%;
+  --myBtnColor: green;
+  --fontSizeH2: 2rem;
+}
+
 a {
   text-decoration: none;
 }
@@ -26,7 +32,7 @@ header nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 80%;
+  width: var(--myWidth);
 }
 
 header nav .logo {
@@ -62,7 +68,7 @@ header nav .menu ul li a {
 }
 
 .hero .heroContainer {
-  width: 80%;
+  width: var(--myWidth);
 }
 
 .hero .heroContainer h1 {
@@ -71,7 +77,7 @@ header nav .menu ul li a {
 }
 
 .hero .heroContainer h2 {
-  font-size: 2rem;
+  font-size: var(--fontSizeH2);
   font-weight: 300;
   margin: 0 0 1rem 0;
 }
@@ -96,7 +102,7 @@ header nav .menu ul li a {
   font-size: 1rem;
   cursor: pointer;
   border-radius: 0.3rem;
-  background-image: linear-gradient(to right, #e54750, #e54750);
+  background: var(--myBtnColor);
   padding: 1rem 2rem;
   border: none;
   color: white;
@@ -120,12 +126,12 @@ header nav .menu ul li a {
 }
 
 .catContainer {
-  width: 80%;
+  width: var(--myWidth);
 }
 
 .categories .catContainer h2 {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: var(--fontSizeH2);
   font-weight: 500;
 }
 
@@ -184,11 +190,11 @@ header nav .menu ul li a {
 }
 
 .topRR .topRRContainer {
-  width: 80%;
+  width: var(--myWidth);
 }
 
 .topRR .topRRContainer h2 {
-  font-size: 2rem;
+  font-size: var(--fontSizeH2);
   font-weight: 500;
   transition: 0.3s;
 }
@@ -282,7 +288,7 @@ header nav .menu ul li a {
 }
 
 .startNow .snContainer {
-  width: 80%;
+  width: var(--myWidth);
   background: linear-gradient(rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.3)),
     url(./assets/startNow.jpg);
   background-position: center;
@@ -301,7 +307,7 @@ header nav .menu ul li a {
 }
 
 .startNow .snContainer h2 {
-  font-size: 2.5rem;
+  font-size: var(--fontSizeH2);
   font-weight: 500;
   margin: 0 0 0.5rem 0;
 }
@@ -315,7 +321,7 @@ header nav .menu ul li a {
   display: inline;
   font-size: 1rem;
   padding: 1rem 2rem;
-  background: #e54750;
+  background: var(--myBtnColor);
   border: none;
   cursor: pointer;
   color: white;
@@ -330,7 +336,7 @@ header nav .menu ul li a {
 }
 
 .cta .ctaContainer {
-  width: 80%;
+  width: var(--myWidth);
   display: flex;
   align-items: center;
   gap: 8rem;
@@ -372,7 +378,7 @@ header nav .menu ul li a {
 }
 
 .cta .ctaContainer .ctaRight h2 {
-  font-size: 2rem;
+  font-size: var(--fontSizeH2);
   font-weight: 700;
   margin: 0 0 1rem 0;
 }
@@ -394,7 +400,7 @@ header nav .menu ul li a {
   margin: 1.5rem 0 0 0;
   font-size: 1rem;
   padding: 1rem 2rem;
-  background: #e54750;
+  background: var(--myBtnColor);
   border: none;
   cursor: pointer;
   color: white;
@@ -422,7 +428,7 @@ footer ul li a {
 
 footer .fContainer {
   display: flex;
-  width: 80%;
+  width: var(--myWidth);
   justify-content: space-between;
 }
 
