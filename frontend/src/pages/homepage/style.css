@@ -1,33 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --myWidth: 80%;
-  --myBtnColor: green;
-  --fontSizeH2: 2rem;
-}
-
-/* global classes */
-.flex {
-  display: flex;
-}
-.alignCenter {
-  align-items: center;
-}
-
-a {
-  text-decoration: none;
-}
-
-body {
-  font-family: "Inter", sans-serif;
-}
-
 header {
   height: 5rem;
   justify-content: center;
@@ -63,7 +33,7 @@ header nav .menu ul li a {
   height: 60vh;
   justify-content: center;
   background-color: #fbf3cc;
-  background-image: url(./assets/heroImage.svg);
+  background-image: url(../../assets/heroImage.svg);
 }
 
 .hero .heroContainer {
@@ -275,7 +245,7 @@ header nav .menu ul li a {
 .startNow .snContainer {
   width: var(--myWidth);
   background: linear-gradient(rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.3)),
-    url(./assets/startNow.jpg);
+    url(../../assets/startNow.jpg);
   background-position: center;
   background-size: cover;
   height: 25rem;
