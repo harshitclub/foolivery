@@ -1,0 +1,57 @@
+.hero {
+  height: 60vh;
+  justify-content: center;
+  background-color: #fbf3cc;
+  background-image: url(../../../../assets/heroImage.svg);
+}
+
+.hero .heroContainer {
+  width: var(--myWidth);
+}
+
+.hero .heroContainer h1 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.hero .heroContainer h2 {
+  font-size: var(--fontSizeH2);
+  font-weight: 300;
+  margin: 0 0 1rem 0;
+}
+
+.hero .heroContainer .heroSearch {
+  background-color: #fff;
+  display: inline-block;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.hero .heroContainer .heroSearch input {
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  width: 40rem;
+  padding: 0.5rem;
+}
+
+.hero .heroContainer .heroSearch button {
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  background: var(--myBtnColor);
+  padding: 1rem 2rem;
+  border: none;
+  color: white;
+}
+
+.hero .heroContainer p {
+  font-weight: 500;
+}
+
+.hero .heroContainer p span a {
+  text-decoration: none;
+  color: black;
+  font-weight: 300;
+}
