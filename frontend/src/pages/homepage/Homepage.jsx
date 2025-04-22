@@ -1,5 +1,4 @@
 import "./style.css";
-import logo from "../../assets/logo.png";
 import cat1 from "../../assets/category/home_cat_bakery.jpg";
 import cat2 from "../../assets/category/home_cat_chinesse.jpg";
 import cat3 from "../../assets/category/home_cat_hamburgher.jpg";
@@ -15,33 +14,13 @@ import location6 from "../../assets/restaurants/location_list_6.jpg";
 import how1 from "../../assets/cta/how_1.svg";
 import how2 from "../../assets/cta/how_2.svg";
 import how3 from "../../assets/cta/how_3.svg";
+import Navbar from "../../components/global/navbar/Navbar";
+import Footer from "../../components/global/footer/Footer";
 
 const Homepage = () => {
   return (
     <>
-      <header className="flex alignCenter">
-        <nav className="flex alignCenter">
-          <div className="logo flex alignCenter">
-            <img src={logo} />
-          </div>
-          <div className="menu">
-            <ul className="flex">
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/">About</a>
-              </li>
-              <li>
-                <a href="/">Contact</a>
-              </li>
-              <li>
-                <a href="/">Login</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </header>
+      <Navbar />
       <main>
         {/* <!-- Hero Section --> */}
         <section className="hero flex alignCenter">
@@ -282,69 +261,7 @@ const Homepage = () => {
           </div>
         </section>
       </main>
-      <footer className="flex alignCenter">
-        <div className="fContainer flex">
-          <div className="fTab">
-            <h3>QUICK LINKS</h3>
-            <ul>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/">About</a>
-              </li>
-              <li>
-                <a href="/">Contact</a>
-              </li>
-              <li>
-                <a href="/">Login</a>
-              </li>
-            </ul>
-          </div>
-          <div className="fTab">
-            <h3>CATEGORIES</h3>
-            <ul>
-              <li>
-                <a href="/">Top Categories</a>
-              </li>
-              <li>
-                <a href="/">Best Rated</a>
-              </li>
-              <li>
-                <a href="/">Best Price</a>
-              </li>
-              <li>
-                <a href="/">Latest Submissions</a>
-              </li>
-            </ul>
-          </div>
-          <div className="fTab">
-            <h3>CONTACTS</h3>
-            <ul>
-              <li>
-                <a href="/">
-                  97845 Baker st. 567
-                  <br />
-                  Los Angeles - US
-                </a>
-              </li>
-              <li>
-                <a href="/">+94 423-23-221</a>
-              </li>
-              <li>
-                <a href="/">Best Price</a>
-              </li>
-              <li>
-                <a href="/">info@domain.com</a>
-              </li>
-            </ul>
-          </div>
-          <div className="fTab">
-            <h3>KEEP IN TOUCH</h3>
-            <input placeholder="Your Email" />
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 };
