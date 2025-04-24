@@ -1,5 +1,3 @@
-import "./style.css";
-
 import Navbar from "../../components/global/navbar/Navbar";
 import Footer from "../../components/global/footer/Footer";
 import Hero from "../../components/local/homepage/hero/Hero";
@@ -11,7 +9,6 @@ import CTA from "../../components/local/homepage/cta/CTA";
 const Homepage = () => {
   return (
     <>
-      <Navbar />
       <main>
         <Hero />
         <Categories />
@@ -19,7 +16,6 @@ const Homepage = () => {
         <StartNow />
         <CTA />
       </main>
-      <Footer />
     </>
   );
 };
