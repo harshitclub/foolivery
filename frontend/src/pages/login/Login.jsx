@@ -3,20 +3,16 @@ import "./style.css";
 import { LockKeyhole, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 const Login = () => {
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(user);
+
+    console.log(email);
+    console.log(password);
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
-  };
   return (
     <main className="signup">
       <section className="signupContainer">
@@ -30,9 +26,8 @@ const Login = () => {
             <input
               type="email"
               placeholder="Enter your mail"
-              name="email"
-              value={user.email}
-              onChange={handleChange}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
@@ -41,9 +36,8 @@ const Login = () => {
             <input
               type="password"
               placeholder="Enter password"
-              name="password"
-              value={user.password}
-              onChange={handleChange}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
