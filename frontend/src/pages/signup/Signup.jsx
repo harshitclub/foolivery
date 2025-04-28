@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import { LockKeyhole, Mail, Phone, User } from "lucide-react";
 import { Link } from "react-router-dom";
 const Signup = () => {
+  const [user, setUser] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    password: "",
+  });
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    console.log(user);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser({ ...user, [name]: value });
+  };
+
   return (
     <main className="signup">
       <section className="signupContainer">
@@ -10,22 +27,46 @@ const Signup = () => {
           <h1>Signup to Foolivery</h1>
         </div>
 
-        <form>
+        <form onSubmit={handleSignUp}>
           <div className="signupInput">
             <User size={22} strokeWidth={1.5} />
-            <input type="text" placeholder="Enter your full name" />
+            <input
+              type="text"
+              placeholder="Enter your full name"
+              name="fullName"
+              onChange={handleChange}
+              value={user.fullName}
+            />
           </div>
           <div className="signupInput">
             <Mail size={22} strokeWidth={1.5} />
-            <input type="email" placeholder="Enter your mail" />
+            <input
+              type="email"
+              placeholder="Enter your mail"
+              name="email"
+              onChange={handleChange}
+              value={user.email}
+            />
           </div>
           <div className="signupInput">
             <Phone size={22} strokeWidth={1.5} />
-            <input type="number" placeholder="Enter your phone" />
+            <input
+              type="number"
+              placeholder="Enter your phone"
+              name="phone"
+              onChange={handleChange}
+              value={user.phone}
+            />
           </div>
           <div className="signupInput">
             <LockKeyhole size={22} strokeWidth={1.5} />
-            <input type="password" placeholder="Enter password" />
+            <input
+              type="password"
+              placeholder="Enter password"
+              name="password"
+              onChange={handleChange}
+              value={user.password}
+            />
           </div>
 
           <button type="submit">Signup</button>
