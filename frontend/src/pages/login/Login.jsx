@@ -9,8 +9,19 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (email.length === 0) {
+      alert("Email is required");
+    } else if (password.length === 0) {
+      alert("Password is required");
+    } else if (password.length < 8) {
+      alert("Password should be atleast of 8 characters");
+    }
+
     console.log(email);
     console.log(password);
+
+    setEmail("");
+    setPassword("");
   };
 
   return (
