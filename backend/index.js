@@ -1,17 +1,23 @@
+const path = require("path");
+const http = require("http");
 const fs = require("fs");
+// const hostname = "127.0.0.1";
 
-fs.writeFile("./text.txt", "my name is harshit", "utf-8", (err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("File Written Successfully");
-  }
+const indexFile = path.join(__dirname, "./public/index.html");
+
+const server = http.createServer((req, res) => {
+  fs.readFile(indexFile, (err, data) => {
+    if (err) {
+      console.error("Error reading HTML file:", err);
+      res.writeHead(500, { "Content-Type": "text/plain" });
+      res.end("Internal Server Error");
+      return;
+    }
+    res.writeHead(200, { "Content-Type": "text/html" });
+    res.end(data);
+  });
 });
 
-fs.readFile("./text.txt", "utf-8", (err, data) => {
-  if (err) {
-    console.log(err.message);
-  } else {
-    console.log(data);
-  }
+server.listen(3000, () => {
+  console.log("server started");
 });
