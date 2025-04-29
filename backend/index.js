@@ -1,14 +1,17 @@
 const fs = require("fs");
-const os = require("os");
-const http = require("http");
-const path = require("path");
-const url = require("url");
-const crypto = require("crypto");
 
-const server = http.createServer((req, res) => {
-  res.end("hello world");
+fs.writeFile("./text.txt", "my name is harshit", "utf-8", (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("File Written Successfully");
+  }
 });
 
-server.listen(3000, () => {
-  console.log("server started");
+fs.readFile("./text.txt", "utf-8", (err, data) => {
+  if (err) {
+    console.log(err.message);
+  } else {
+    console.log(data);
+  }
 });
