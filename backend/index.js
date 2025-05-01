@@ -4,6 +4,7 @@ const userRouter = require("./routes/userRoutes");
 
 const app = express();
 dotenv.config();
+// this is middleware to handle json data
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
