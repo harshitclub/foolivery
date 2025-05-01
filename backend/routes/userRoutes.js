@@ -7,8 +7,10 @@ const {
   deleteUser,
 } = require("../controllers/userControllers");
 
+// configuring user routes
 const userRouter = express.Router();
 
+// user routes
 userRouter.post("/signup", signup);
 userRouter.post("/login", login);
 userRouter.get("/profile", profile);
