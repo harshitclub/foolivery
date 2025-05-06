@@ -1,6 +1,11 @@
 // signup controller
 const signup = async (req, res) => {
   try {
+    // 1. first take the data from frontend
+    // 2. validate the data
+    // 3. check if the user is already present or not in database
+    // 4. hash the password
+    // 5. save user to the database
     const { fullName, email, phone, password } = req.body;
 
     return res.status(201).json({
