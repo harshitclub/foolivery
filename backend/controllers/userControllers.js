@@ -1,22 +1,40 @@
+const User = require("../schema/userSchema");
+const bcrypt = require("bcrypt");
 // signup controller
 const signup = async (req, res) => {
   try {
     // 1. first take the data from frontend
-    // 2. validate the data
-    // 3. check if the user is already present or not in database
-    // 4. hash the password
-    // 5. save user to the database
     const { fullName, email, phone, password } = req.body;
+
+    // 2. validate the data
+    if (!fullName && !email && !phone && !password) {
+      res.status(406).json({ message: "All fields are required!" });
+    }
+
+    // 3. check if the user is already present or not in database
+    const existingUser = await User.findOne({ email: email });
+
+    if (existingUser) {
+      res.status(406).json({ message: "User already exists with this email" });
+    }
+
+    // 4. hash the password
+    const hashPassword = await bcrypt.hash(password, 10);
+
+    // 5. save user to the database
+    const newUser = new User({
+      fullName: fullName,
+      email: email,
+      phone: phone,
+      password: hashPassword,
+    });
+
+    await newUser.save();
 
     return res.status(201).json({
       message: "Signup Success",
       success: true,
-      data: {
-        name: fullName,
-        email: email,
-        phone: phone,
-        password: password,
-      },
+      data: newUser,
     });
   } catch (error) {
     console.log(error);
@@ -24,8 +42,30 @@ const signup = async (req, res) => {
 };
 
 // login controller
-const login = (req, res) => {
-  res.send("login function");
+const login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email && !password) {
+      res.status(406).json({ message: "All fields are required" });
+    }
+
+    const user = await User.findOne({ email: email });
+
+    if (!user) {
+      res.status(404).json({ message: "User not found" });
+    }
+
+    const comparePassword = await bcrypt.compare(password, user.password);
+
+    if (!comparePassword) {
+      res.status(400).json({ message: "Invalid Credentials" });
+    }
+
+    res.status(200).json({ message: "Login Success" });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // profile controller
