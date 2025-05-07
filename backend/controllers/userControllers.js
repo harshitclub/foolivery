@@ -115,8 +115,46 @@ const profile = async (req, res) => {
 };
 
 // update user controller
-const updateUser = (req, res) => {
-  res.send("update function");
+const updateUser = async (req, res) => {
+  try {
+    const token = req.cookies.foolivery;
+    if (!token) {
+      return res.status(401).json({ message: "Token not found" });
+    }
+    const tokenData = jwt.verify(token, secret_key);
+    if (!tokenData) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    const userId = tokenData.id;
+    const { fullName, phone } = req.body;
+
+    const updateFields = {};
+    if (fullName) {
+      updateFields.fullName = fullName;
+    }
+    if (phone) {
+      updateFields.phone = phone;
+    }
+
+    // Find the user by ID and update the specified fields
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      { $set: updateFields }, // Use $set to update only the provided fields
+      { new: true, runValidators: true } // Return the updated document and run schema validators
+    );
+
+    if (!updatedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res
+      .status(200)
+      .json({ message: "User updated successfully", data: updatedUser });
+  } catch (error) {
+    console.error("Error updating user:", error);
+    res.status(500).json({ message: "Failed to update user" });
+  }
 };
 
 // delete user controller
