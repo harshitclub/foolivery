@@ -1,5 +1,6 @@
 const User = require("../schema/userSchema");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 // signup controller
 const signup = async (req, res) => {
   try {
@@ -61,8 +62,25 @@ const login = async (req, res) => {
     if (!comparePassword) {
       res.status(400).json({ message: "Invalid Credentials" });
     }
+    const secret_key = process.env.SECRET_KEY;
+    const secret_key_expiry = process.env.SECRET_KEY_EXPIRY;
+    const accessToken = jwt.sign(
+      {
+        id: user._id,
+        email: user.email,
+      },
+      secret_key,
+      {
+        expiresIn: secret_key_expiry,
+      }
+    );
 
-    res.status(200).json({ message: "Login Success" });
+    res.cookie("foolivery", accessToken, {
+      httpOnly: true,
+      path: "/",
+      maxAge: 1000 * 60 * 60 * 24 * 3,
+    });
+    res.status(200).json({ message: "Login Success", data: user });
   } catch (error) {
     console.log(error);
   }
