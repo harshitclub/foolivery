@@ -99,6 +99,10 @@ const profile = async (req, res) => {
     }
     const tokenData = jwt.verify(token, secret_key);
 
+    if (!tokenData) {
+      res.status(401).json({ message: "Unauthorized" });
+    }
+
     const profile = await User.findById({ _id: tokenData.id });
     if (!profile) {
       res.status(404).json({ message: "User not found" });

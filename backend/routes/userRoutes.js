@@ -6,6 +6,7 @@ const {
   updateUser,
   deleteUser,
 } = require("../controllers/userControllers");
+const { isLogin } = require("../middlewares/auth");
 
 // configuring user routes
 // hello
@@ -14,7 +15,7 @@ const userRouter = express.Router();
 // user routes
 userRouter.post("/signup", signup);
 userRouter.post("/login", login);
-userRouter.get("/profile", profile);
+userRouter.get("/profile", isLogin, profile);
 userRouter.patch("/update", updateUser);
 userRouter.delete("/delete", deleteUser);
 

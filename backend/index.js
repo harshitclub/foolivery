@@ -7,8 +7,8 @@ const cookieParser = require("cookie-parser");
 const app = express();
 dotenv.config();
 // this is middleware to handle json data
-app.use(express.json());
 app.use(cookieParser());
+app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
