@@ -1,6 +1,11 @@
 const User = require("../schema/userSchema");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
+
+const secret_key = process.env.SECRET_KEY;
+const secret_key_expiry = process.env.SECRET_KEY_EXPIRY;
+
 // signup controller
 const signup = async (req, res) => {
   try {
@@ -62,8 +67,7 @@ const login = async (req, res) => {
     if (!comparePassword) {
       res.status(400).json({ message: "Invalid Credentials" });
     }
-    const secret_key = process.env.SECRET_KEY;
-    const secret_key_expiry = process.env.SECRET_KEY_EXPIRY;
+
     const accessToken = jwt.sign(
       {
         id: user._id,
@@ -87,8 +91,23 @@ const login = async (req, res) => {
 };
 
 // profile controller
-const profile = (req, res) => {
-  res.send("profile function");
+const profile = async (req, res) => {
+  try {
+    const token = req.cookies.foolivery;
+    if (!token) {
+      res.status(401).json({ message: "Token not found" });
+    }
+    const tokenData = jwt.verify(token, secret_key);
+
+    const profile = await User.findById({ _id: tokenData.id });
+    if (!profile) {
+      res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({ message: "User found", data: profile });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // update user controller
