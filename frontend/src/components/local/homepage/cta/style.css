@@ -69,3 +69,23 @@
   color: white;
   border-radius: 0.3rem;
 }
+
+@media (max-width: 400px) {
+  .cta .ctaContainer {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .cta .ctaContainer .ctaLeft {
+    flex-direction: column;
+    width: 100%;
+  }
+  .ctaBox .ctaBoxChild {
+    width: 100%;
+  }
+  .cta .ctaContainer .ctaRight {
+    width: 100%;
+  }
+  .cta .ctaContainer .ctaRight p {
+    font-size: 1rem;
+  }
+}

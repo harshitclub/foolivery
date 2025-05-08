@@ -57,3 +57,19 @@
   margin: -3.5rem 0 0.5rem 1rem;
   color: #fff;
 }
+
+@media (max-width: 400px) {
+  .categories {
+    padding: 2rem 0;
+    height: auto;
+  }
+  .categories .catContainer .catDesc {
+    font-size: 1rem;
+  }
+  .categories .catContainer .catBoxes {
+    flex-direction: column;
+  }
+  .categories .catContainer .catBoxes .catBox {
+    width: 100%;
+  }
+}

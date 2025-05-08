@@ -7,6 +7,7 @@ header {
 header nav {
   justify-content: space-between;
   width: var(--myWidth);
+  max-width: var(--maxWidth);
 }
 
 header nav .logo {
@@ -27,4 +28,40 @@ header nav .menu ul {
 header nav .menu ul li a {
   text-decoration: none;
   color: #000;
+}
+
+.menuIcon {
+  display: none;
+}
+
+@media (max-width: 400px) {
+  header nav .logo img {
+    width: 60%;
+  }
+  header nav .menu {
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    left: -60%;
+    width: 60vw;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 999;
+    transition: 0.2s all ease-in-out;
+  }
+
+  .showMenu {
+    left: 0 !important;
+  }
+
+  header nav .menu ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  header nav .menu ul li a {
+    color: white;
+  }
+  .menuIcon {
+    display: block;
+  }
 }

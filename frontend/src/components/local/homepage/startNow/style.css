@@ -44,3 +44,16 @@
   color: white;
   border-radius: 0.3rem;
 }
+
+@media (max-width: 400px) {
+  .startNow .snContainer {
+    height: auto;
+    padding: 1rem;
+  }
+  .startNow .snContainer h2 {
+    font-size: 1rem;
+  }
+  .startNow .snContainer p {
+    font-size: 1rem;
+  }
+}

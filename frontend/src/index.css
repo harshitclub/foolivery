@@ -8,6 +8,7 @@
 
 :root {
   --myWidth: 80%;
+  --maxWidth: 1400px;
   --myBtnColor: green;
   --fontSizeH2: 2rem;
 }
@@ -26,4 +27,10 @@ a {
 
 body {
   font-family: "Inter", sans-serif;
+}
+
+@media (max-width: 400px) {
+  :root {
+    --myWidth: 85%;
+  }
 }

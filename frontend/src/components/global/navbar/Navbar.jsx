@@ -1,6 +1,10 @@
 import "./style.css";
 import logo from "../../../assets/logo.png";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 const Navbar = () => {
+  const [toggleMenu, setToggleMenu] = useState(false);
+
   return (
     <>
       <header className="flex alignCenter">
@@ -8,7 +12,7 @@ const Navbar = () => {
           <div className="logo flex alignCenter">
             <img src={logo} />
           </div>
-          <div className="menu">
+          <div className={`menu ${!toggleMenu ? "" : "showMenu"}`}>
             <ul className="flex">
               <li>
                 <a href="/">Home</a>
@@ -23,6 +27,21 @@ const Navbar = () => {
                 <a href="/login">Login</a>
               </li>
             </ul>
+          </div>
+          <div className="menuIcon">
+            {toggleMenu ? (
+              <X
+                onClick={() => {
+                  setToggleMenu(false);
+                }}
+              />
+            ) : (
+              <Menu
+                onClick={() => {
+                  setToggleMenu(true);
+                }}
+              />
+            )}
           </div>
         </nav>
       </header>
