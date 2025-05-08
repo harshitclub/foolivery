@@ -6,7 +6,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (email.length === 0) {
@@ -17,8 +17,14 @@ const Login = () => {
       alert("Password should be atleast of 8 characters");
     }
 
-    console.log(email);
-    console.log(password);
+    const response = await fetch("http://localhost:5000/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const data = await response.json();
+    console.log(data);
 
     setEmail("");
     setPassword("");
