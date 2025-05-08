@@ -3,10 +3,12 @@ const dotenv = require("dotenv");
 const userRouter = require("./routes/userRoutes");
 const connectDB = require("./utils/db");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 const app = express();
 dotenv.config();
 // this is middleware to handle json data
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 

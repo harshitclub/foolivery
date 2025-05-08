@@ -118,9 +118,7 @@ const profile = async (req, res) => {
 const updateUser = async (req, res) => {
   try {
     const token = req.cookies.foolivery;
-    if (!token) {
-      return res.status(401).json({ message: "Token not found" });
-    }
+
     const tokenData = jwt.verify(token, secret_key);
     if (!tokenData) {
       return res.status(401).json({ message: "Unauthorized" });
@@ -140,8 +138,7 @@ const updateUser = async (req, res) => {
     // Find the user by ID and update the specified fields
     const updatedUser = await User.findByIdAndUpdate(
       userId,
-      { $set: updateFields }, // Use $set to update only the provided fields
-      { new: true, runValidators: true } // Return the updated document and run schema validators
+      { $set: updateFields } // Use $set to update only the provided fields
     );
 
     if (!updatedUser) {
