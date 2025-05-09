@@ -1,0 +1,354 @@
+/* ProfileStyle.css */
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+  background-color: #f0f0f0; /* A light grey background */
+  min-height: 100vh;
+}
+
+.profile > .profileContainer {
+  background-color: #fbf3cc; /* Same light yellow as signup */
+  padding: 2rem;
+  border-radius: 0.3rem;
+  width: 80vw;
+  max-width: 700px;
+}
+
+.profile > .profileContainer > .profileHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #ddd; /* Light grey border */
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile > .profileContainer > .profileHeader > .avatar-container {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border: 2px solid #ddd;
+}
+
+.profile > .profileContainer > .profileHeader > .avatar-container > .avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile > .profileContainer > .profileHeader > h1 {
+  font-weight: 500;
+  font-size: 2rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.profile > .profileContainer > .profileHeader > .user-bio {
+  color: #666;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.profileActions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  justify-content: flex-end; /* Align links to the right */
+}
+
+.profileActions > .actionLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #007bff; /* Blue link color */
+  font-size: 0.9rem;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid #007bff;
+  border-radius: 0.3rem;
+  transition: background-color 0.2s ease;
+}
+
+.profileActions > .actionLink:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.profileActions > .actionLink > .icon {
+  color: #007bff;
+}
+
+.profileActions > .actionLink:hover > .icon {
+  color: white;
+}
+
+.profile > .profileContainer > .profileDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.profile > .profileContainer > .profileDetails > .detailSection {
+  background-color: #fff;
+  padding: 1.2rem;
+  border-radius: 0.3rem;
+  border: 1px solid #eee;
+}
+
+.profile > .profileContainer > .profileDetails > .detailSection > h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.profile > .profileContainer > .profileDetails > .detailSection > .detailItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+  color: #555;
+  font-size: 1rem;
+}
+
+.profile
+  > .profileContainer
+  > .profileDetails
+  > .detailSection
+  > .detailItem
+  > .icon {
+  color: #333;
+}
+
+.profile > .profileContainer > .profileDetails > .detailSection > .addressList {
+  list-style: none;
+  padding: 0;
+}
+
+.profile
+  > .profileContainer
+  > .profileDetails
+  > .detailSection
+  > .addressList
+  > .addressItem {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.profile
+  > .profileContainer
+  > .profileDetails
+  > .detailSection
+  > .addressList
+  > .addressItem:last-child {
+  border-bottom: none;
+}
+
+.profile
+  > .profileContainer
+  > .profileDetails
+  > .detailSection
+  > .addressList
+  > .addressItem
+  > .addressLabel {
+  font-weight: bold;
+  color: #333;
+  margin-right: 0.3rem;
+}
+
+.profile
+  > .profileContainer
+  > .profileDetails
+  > .detailSection
+  > .addressList
+  > .addressItem
+  > .defaultBadge {
+  background-color: var(--myBtnColor); /* Use the same button color */
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.3rem;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+.profile
+  > .profileContainer
+  > .profileDetails
+  > .detailSection
+  > .preferenceGroup {
+  margin-bottom: 1rem;
+}
+
+.profile
+  > .profileContainer
+  > .profileDetails
+  > .detailSection
+  > .preferenceGroup
+  > .preferenceTitle {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.profile
+  > .profileContainer
+  > .profileDetails
+  > .detailSection
+  > .preferenceGroup
+  > .preferenceList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.profile
+  > .profileContainer
+  > .profileDetails
+  > .detailSection
+  > .preferenceGroup
+  > .preferenceList
+  > li {
+  background-color: #f0f0f0;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.3rem;
+}
+
+.profile
+  > .profileContainer
+  > .profileDetails
+  > .detailSection
+  > .paymentMethodsList {
+  list-style: none;
+  padding: 0;
+}
+
+.profile
+  > .profileContainer
+  > .profileDetails
+  > .detailSection
+  > .paymentMethodsList
+  > .paymentMethodItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  color: #555;
+  font-size: 1rem;
+}
+
+.profile
+  > .profileContainer
+  > .profileDetails
+  > .detailSection
+  > .paymentMethodsList
+  > .paymentMethodItem:last-child {
+  border-bottom: none;
+}
+
+.profile
+  > .profileContainer
+  > .profileDetails
+  > .detailSection
+  > .paymentMethodsList
+  > .paymentMethodItem
+  > .icon {
+  color: #333;
+}
+
+.profile
+  > .profileContainer
+  > .profileDetails
+  > .detailSection
+  > .paymentMethodsList
+  > .paymentMethodItem
+  > .defaultBadge {
+  background-color: var(--myBtnColor);
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.3rem;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+.profile
+  > .profileContainer
+  > .profileDetails
+  > .detailSection
+  > .loyaltyPointsContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+.profile
+  > .profileContainer
+  > .profileDetails
+  > .detailSection
+  > .loyaltyPointsContainer
+  > .icon {
+  color: #333;
+}
+
+.profile
+  > .profileContainer
+  > .profileDetails
+  > .detailSection
+  > .loyaltyPointsContainer
+  > .loyaltyPoints {
+  font-weight: bold;
+  color: var(--myBtnColor);
+}
+
+/* Loading and Error styles */
+.profile.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: var(--myBtnColor);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.profile.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+}
+
+.profile.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #777;
+}

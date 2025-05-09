@@ -1,63 +1,68 @@
+import React, { useContext, useState } from "react";
 import "./style.css";
 import logo from "../../../assets/logo.png";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthContext";
+
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
-  const [user, setUser] = useState(null);
-  const getProfile = async () => {
-    const profile = await axios.get("http://localhost:5000/profile", {
-      withCredentials: true,
-    });
-    setUser(profile.data.data);
-  };
-  useEffect(() => {
-    getProfile();
-  }, []);
+  const { currentUser } = useContext(AuthContext);
+
   return (
-    <>
-      <header className="flex alignCenter">
-        <nav className="flex alignCenter">
-          <div className="logo flex alignCenter">
-            <img src={logo} />
-          </div>
-          <div className={`menu ${!toggleMenu ? "" : "showMenu"}`}>
-            <ul className="flex">
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/about">About</a>
-              </li>
-              <li>
-                <a href="/contact">Contact</a>
-              </li>
-              <li>
-                <a href={`/${user ? "profile" : "login"}`}>
-                  {user ? user.fullName : "Login"}
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="menuIcon">
-            {toggleMenu ? (
-              <X
-                onClick={() => {
-                  setToggleMenu(false);
-                }}
-              />
+    <header className="flex alignCenter">
+      <nav className="flex alignCenter">
+        <div className="logo flex alignCenter">
+          <Link to="/">
+            <img src={logo} alt="Foolivery Logo" />
+          </Link>
+        </div>
+        <div className={`menu ${!toggleMenu ? "" : "showMenu"}`}>
+          <ul className="flex">
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact</Link>
+            </li>
+            {currentUser ? (
+              <>
+                <li>
+                  <Link to="/profile">{currentUser.fullName}</Link>
+                </li>
+              </>
             ) : (
-              <Menu
-                onClick={() => {
-                  setToggleMenu(true);
-                }}
-              />
+              <>
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+                <li>
+                  <Link to="/signup">Signup</Link>
+                </li>
+              </>
             )}
-          </div>
-        </nav>
-      </header>
-    </>
+          </ul>
+        </div>
+        <div className="menuIcon">
+          {toggleMenu ? (
+            <X
+              onClick={() => {
+                setToggleMenu(false);
+              }}
+            />
+          ) : (
+            <Menu
+              onClick={() => {
+                setToggleMenu(true);
+              }}
+            />
+          )}
+        </div>
+      </nav>
+    </header>
   );
 };
 

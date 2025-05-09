@@ -1,0 +1,238 @@
+/* UpdateProfileStyle.css */
+.update-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+  background-color: #f0f0f0;
+  min-height: 100vh;
+}
+
+.update-profile > .update-profileContainer {
+  background-color: #fbf3cc;
+  padding: 2rem;
+  border-radius: 0.3rem;
+  width: 80vw;
+  max-width: 700px;
+}
+
+.update-profile > .update-profileContainer > .update-profileHeader {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.update-profile > .update-profileContainer > .update-profileHeader > h1 {
+  font-weight: 500;
+  font-size: 2rem;
+  text-align: center;
+  color: #333;
+}
+
+.update-profile > .update-profileContainer > .update-profileDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.update-profile
+  > .update-profileContainer
+  > .update-profileDetails
+  > .detailSection {
+  background-color: #fff;
+  padding: 1.2rem;
+  border-radius: 0.3rem;
+  border: 1px solid #eee;
+}
+
+.update-profile
+  > .update-profileContainer
+  > .update-profileDetails
+  > .detailSection
+  > h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.update-profile
+  > .update-profileContainer
+  > .update-profileDetails
+  > .detailSection
+  > .detailItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+  color: #555;
+  font-size: 1rem;
+}
+
+.update-profile
+  > .update-profileContainer
+  > .update-profileDetails
+  > .detailSection
+  > .detailItem
+  > .icon {
+  color: #333;
+}
+
+.update-profile
+  > .update-profileContainer
+  > .update-profileDetails
+  > .detailSection
+  > .detailItem
+  > .inputField {
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  padding: 0.6rem;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.update-profile
+  > .update-profileContainer
+  > .update-profileDetails
+  > .detailSection
+  > .preferenceGroup {
+  margin-bottom: 1rem;
+}
+
+.update-profile
+  > .update-profileContainer
+  > .update-profileDetails
+  > .detailSection
+  > .preferenceGroup
+  > .preferenceTitle {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.update-profile
+  > .update-profileContainer
+  > .update-profileDetails
+  > .detailSection
+  > .preferenceGroup
+  > .preferenceList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.update-profile
+  > .update-profileContainer
+  > .update-profileDetails
+  > .detailSection
+  > .preferenceGroup
+  > .preferenceList
+  > li {
+  margin-bottom: 0.3rem;
+}
+
+.update-profile
+  > .update-profileContainer
+  > .update-profileDetails
+  > .detailSection
+  > .preferenceGroup
+  > .preferenceList
+  > li
+  > .checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #555;
+  font-size: 1rem;
+}
+
+.update-profile
+  > .update-profileContainer
+  > .update-profileDetails
+  > .detailSection
+  > .preferenceGroup
+  > .preferenceList
+  > li
+  > .checkboxLabel
+  > input[type="checkbox"] {
+  margin-right: 0.3rem;
+}
+
+.update-profile
+  > .update-profileContainer
+  > .update-profileDetails
+  > .detailSection
+  > .preferenceGroup
+  > .allergyInput
+  > .inputField {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  outline: none;
+}
+
+.update-profile
+  > .update-profileContainer
+  > .update-profileDetails
+  > .updateButton {
+  background-color: var(--myBtnColor);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 0.3rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.update-profile
+  > .update-profileContainer
+  > .update-profileDetails
+  > .updateButton:hover {
+  background-color: #e0a800;
+}
+
+.successMessage {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 0.8rem;
+  border-radius: 0.3rem;
+  margin-bottom: 1rem;
+  border: 1px solid #c3e6cb;
+}
+
+.errorMessage {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 0.8rem;
+  border-radius: 0.3rem;
+  margin-bottom: 1rem;
+  border: 1px solid #f5c6cb;
+}
+
+.loader {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: var(--myBtnColor);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
