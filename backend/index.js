@@ -7,10 +7,21 @@ const cors = require("cors");
 
 const app = express();
 dotenv.config();
-// this is middleware to handle json data
-app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "Origin",
+      "Accept",
+      "X-Requested-With",
+    ],
+  })
+);
 
 const PORT = process.env.PORT || 5000;
 

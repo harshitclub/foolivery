@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import "./style.css";
 import { LockKeyhole, Mail, Phone, User } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const Signup = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     fullName: "",
     email: "",
@@ -21,6 +23,11 @@ const Signup = () => {
 
     const data = await response.json();
     console.log(data);
+
+    alert("Signup Success");
+    setTimeout(() => {
+      navigate("/login");
+    }, 1500);
   };
 
   const handleChange = (e) => {
