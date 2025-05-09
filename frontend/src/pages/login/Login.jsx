@@ -3,7 +3,9 @@ import "./style.css";
 import { LockKeyhole, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,13 +20,6 @@ const Login = () => {
       alert("Password should be atleast of 8 characters");
     }
 
-    // const response = await fetch("http://localhost:5000/login", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({ email, password }),
-    //   credentials: "include",
-    // });
-
     const response = await axios.post(
       "http://localhost:5000/login",
       { email, password },
@@ -38,6 +33,8 @@ const Login = () => {
 
     setEmail("");
     setPassword("");
+    alert("Login Success");
+    navigate("/profile");
   };
 
   return (

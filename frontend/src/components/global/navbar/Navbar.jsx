@@ -1,10 +1,20 @@
 import "./style.css";
 import logo from "../../../assets/logo.png";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
-
+  const [user, setUser] = useState(null);
+  const getProfile = async () => {
+    const profile = await axios.get("http://localhost:5000/profile", {
+      withCredentials: true,
+    });
+    setUser(profile.data.data);
+  };
+  useEffect(() => {
+    getProfile();
+  }, []);
   return (
     <>
       <header className="flex alignCenter">
@@ -24,7 +34,9 @@ const Navbar = () => {
                 <a href="/contact">Contact</a>
               </li>
               <li>
-                <a href="/login">Login</a>
+                <a href={`/${user ? "profile" : "login"}`}>
+                  {user ? user.fullName : "Login"}
+                </a>
               </li>
             </ul>
           </div>
