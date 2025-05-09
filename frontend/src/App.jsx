@@ -6,6 +6,7 @@ import Navbar from "./components/global/navbar/Navbar";
 import Footer from "./components/global/footer/Footer";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
+import Profile from "./pages/profile/Profile";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
       <Footer />
