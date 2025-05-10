@@ -26,6 +26,12 @@ const Navbar = () => {
               <Link to="/about">About</Link>
             </li>
             <li>
+              <Link to="/menu">Menu</Link>
+            </li>
+            <li>
+              <Link to="/recipe-generator">Recipe</Link>
+            </li>
+            <li>
               <Link to="/contact">Contact</Link>
             </li>
             {currentUser ? (
@@ -38,9 +44,6 @@ const Navbar = () => {
               <>
                 <li>
                   <Link to="/login">Login</Link>
-                </li>
-                <li>
-                  <Link to="/signup">Signup</Link>
                 </li>
               </>
             )}

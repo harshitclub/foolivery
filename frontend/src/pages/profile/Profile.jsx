@@ -1,6 +1,15 @@
 import React, { useContext } from "react";
 import "./style.css"; // New CSS file for profile
-import { Mail, Phone, MapPin, CreditCard, Gift, Edit, Key } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  CreditCard,
+  Gift,
+  Edit,
+  Key,
+  LogOut,
+} from "lucide-react";
 import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -56,6 +65,10 @@ const Profile = () => {
             <Key size={20} strokeWidth={1.5} className="icon" />
             <span>Change Password</span>
           </Link>
+          <button className="actionLink">
+            <LogOut size={20} strokeWidth={1.5} className="icon" />
+            <span>Logout</span>
+          </button>
         </div>
 
         <div className="profileDetails">

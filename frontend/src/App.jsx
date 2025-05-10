@@ -11,6 +11,8 @@ import UpdateProfile from "./pages/updateProfile/updateProfile";
 import ChangePassword from "./pages/change-password/ChangePassword";
 import { AuthContextProvider, AuthContext } from "./context/AuthContext"; // Import both
 import { useContext } from "react";
+import Recipe from "./pages/recipe-generator/Recipe";
+import MenuPage from "./pages/menuPage/MenuPage";
 
 function App() {
   return (
@@ -21,21 +23,7 @@ function App() {
 }
 
 function AppContent() {
-  const { currentUser, loading } = useContext(AuthContext);
-
-  // Initial loading screen
-  if (loading) {
-    return (
-      <div>
-        <Navbar />
-        <main className="loading-screen">
-          <div className="spinner"></div>
-          <p>Loading...</p>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
+  const { currentUser } = useContext(AuthContext);
 
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
@@ -58,6 +46,8 @@ function AppContent() {
         <Route path="/" element={<Homepage />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/menu" element={<MenuPage />} />
+        <Route path="/recipe-generator" element={<Recipe />} />
         <Route
           path="/login"
           element={

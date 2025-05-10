@@ -1,0 +1,146 @@
+/* style.css */
+
+/* General styles (you might already have these) */
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  background-color: #f4f4f4;
+}
+
+/* Menu Page Styles (Optimized) */
+.menu-page {
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.menuContainer {
+  background-color: #fff;
+  padding: 3rem;
+  border-radius: 0.5rem;
+  width: 80vw;
+  max-width: 1000px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menuHeader {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.menuHeader h1 {
+  font-weight: 600;
+  font-size: 3rem;
+  color: var(--myTitleColor, #333);
+  margin-bottom: 0.5rem;
+}
+
+.menuHeader .tagline {
+  color: #666;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.menuSections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.menuSection {
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #eee;
+  position: relative; /* For the arrow */
+}
+
+.menuSection:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.menuSection h2 {
+  font-weight: 500;
+  font-size: 2rem;
+  color: var(--myBtnColor, #007bff);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.menuSection .sectionIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--myBtnColor, #007bff);
+}
+
+.menuItems {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.menuItem {
+  padding: 1.2rem;
+  border-radius: 0.4rem;
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.menuItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.menuItem h3 {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.menuItem .description {
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.menuItem .price {
+  font-weight: 600;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.sectionArrow {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0;
+  width: 2rem;
+  height: 2rem;
+  color: #ccc;
+  transition: color 0.2s ease;
+}
+
+.menuSection:hover .sectionArrow {
+  color: var(--myBtnColor, #007bff);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .menuContainer {
+    width: 95vw;
+    padding: 2rem;
+  }
+
+  .menuHeader h1 {
+    font-size: 2.5rem;
+  }
+
+  .menuItems {
+    grid-template-columns: 1fr; /* Stack on smaller screens */
+  }
+}

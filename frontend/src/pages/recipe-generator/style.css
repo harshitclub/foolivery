@@ -1,0 +1,150 @@
+/* style.css */
+
+/* General styles (you might already have these) */
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  background-color: #f4f4f4;
+}
+
+/* Recipe Page Styles (inspired by Signup) */
+.recipe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0;
+  min-height: 70vh; /* Adjust as needed */
+}
+
+.recipe > .recipeContainer {
+  background-color: #fff;
+  padding: 3rem;
+  border-radius: 0.5rem;
+  width: 40vw;
+  max-width: 600px; /* Adjusted max width */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.recipe > .recipeContainer > .recipeHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.recipe > .recipeContainer > .recipeHeader > .headerIcon {
+  color: var(--myBtnColor, #007bff); /* Use your theme color or a default */
+  margin-bottom: 0.5rem;
+}
+
+.recipe > .recipeContainer > .recipeHeader > h1 {
+  font-weight: 600;
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.recipe > .recipeContainer > .recipeHeader > .tagline {
+  color: #777;
+  font-size: 1.1rem;
+}
+
+.recipe > .recipeContainer > form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.recipe > .recipeContainer > form > .recipeInput {
+  background-color: #f9f9f9;
+  border-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.7rem;
+  gap: 0.8rem;
+  border: 1px solid #eee;
+}
+
+.recipe > .recipeContainer > form > .recipeInput > .inputIcon {
+  color: #555;
+}
+
+.recipe > .recipeContainer > form > .recipeInput > input {
+  outline: none;
+  border: none;
+  width: 100%;
+  font-size: 1.1rem;
+  padding-left: 0.8rem;
+  background-color: transparent;
+}
+
+.recipe > .recipeContainer > form > button {
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  background: var(--myBtnColor, #007bff);
+  padding: 0.8rem 1.2rem;
+  border: none;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.recipe > .recipeContainer > form > button:hover {
+  background: color-mix(in srgb, var(--myBtnColor, #007bff) 80%, black);
+}
+
+.recipe > .recipeContainer > form > button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.recipe > .recipeContainer > .errorMessage {
+  color: #dc3545;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border: 1px solid #f8d7da;
+  background-color: #fdecea;
+  border-radius: 0.4rem;
+  text-align: center;
+}
+
+.recipe > .recipeContainer > .recipeOutput {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 0.4rem;
+  background-color: #fff;
+}
+
+.recipe > .recipeContainer > .recipeOutput > h2 {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.8rem;
+}
+
+.recipe > .recipeContainer > .recipeOutput > .recipeText {
+  white-space: pre-line;
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.7;
+}
+
+.recipe > .recipeContainer > .recipeFooter {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.recipe > .recipeContainer > .recipeFooter > p > .browseLink {
+  color: var(--myBtnColor, #007bff);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.recipe > .recipeContainer > .recipeFooter > p > .browseLink:hover {
+  text-decoration: underline;
+}

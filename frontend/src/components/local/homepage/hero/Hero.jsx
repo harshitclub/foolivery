@@ -6,8 +6,8 @@ const Hero = () => {
   return (
     <section className="hero flex alignCenter">
       <div className="heroContainer">
-        <h1 id="heroHeading">Delivery or Takeaway Food</h1>
-        <h2>The best restaurants at the best price</h2>
+        <h1 id="heroHeading">Fresh, fast & delicious!</h1>
+        <h2>The best restaurant at the best price</h2>
         <div className="heroSearch">
           <input placeholder="Address, neighborhood..." />
           <button id="heroBtn">Search</button>
