@@ -34,6 +34,8 @@ function AppContent() {
 
   const AuthRedirect = ({ children }) => {
     if (currentUser) {
+      console.log("loggedin");
+
       return <Navigate to="/" />;
     }
     return children;

@@ -5,31 +5,42 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
-  const [loading, setLoading] = useState(true); // Initial loading state
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const fetchProfile = async () => {
-    setLoading(true);
-    setError(null);
     try {
       const res = await axios.get("http://localhost:5000/profile", {
         withCredentials: true,
       });
-      setCurrentUser(res.data.data);
-      setLoading(false);
+      if (res.data?.data) {
+        setCurrentUser(res.data.data);
+        localStorage.setItem("user", JSON.stringify(res.data.data));
+      } else {
+        setCurrentUser(null);
+        localStorage.removeItem("user");
+      }
     } catch (err) {
-      setCurrentUser(null); // Profile fetch failed, user is not logged in
+      setCurrentUser(null);
+      localStorage.removeItem("user");
+      setError(err.response?.data?.message || "Failed to fetch profile");
+    } finally {
       setLoading(false);
-      // Optionally log the error for debugging:
-      console.error(
-        "Error fetching profile on app load:",
-        err.response?.data?.message || err.message
-      );
     }
   };
 
   useEffect(() => {
-    fetchProfile(); // Fetch profile on component mount
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      try {
+        setCurrentUser(JSON.parse(storedUser));
+      } catch (e) {
+        console.error("Error parsing stored user data", e);
+        localStorage.removeItem("user");
+      }
+    }
+
+    fetchProfile();
   }, []);
 
   const login = async (inputs) => {
@@ -39,18 +50,33 @@ export const AuthContextProvider = ({ children }) => {
       const res = await axios.post("http://localhost:5000/login", inputs, {
         withCredentials: true,
       });
-      setCurrentUser(res.data.data); // Assuming your login response returns user data
-      setLoading(false);
-      return true; // Indicate successful login
+      if (res.data?.data) {
+        setCurrentUser(res.data.data);
+        localStorage.setItem("user", JSON.stringify(res.data.data));
+        setLoading(false);
+        return true;
+      } else {
+        setError("Login failed.  Invalid Credentials");
+        setLoading(false);
+        return false;
+      }
     } catch (err) {
-      setError(err.response?.data?.message || "Login failed!");
+      const errorMessage = err.response?.data?.message || "Login failed!";
+      setError(errorMessage);
       setLoading(false);
-      return false; // Indicate failed login
+      return false;
     }
   };
 
+  const logout = () => {
+    setCurrentUser(null);
+    localStorage.removeItem("user");
+  };
+
   return (
-    <AuthContext.Provider value={{ currentUser, loading, error, login }}>
+    <AuthContext.Provider
+      value={{ currentUser, loading, error, login, logout }}
+    >
       {children}
     </AuthContext.Provider>
   );

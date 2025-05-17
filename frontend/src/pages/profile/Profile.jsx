@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "./style.css"; // New CSS file for profile
+import "./style.css";
 import {
   Mail,
   Phone,
@@ -10,11 +10,35 @@ import {
   Key,
   LogOut,
 } from "lucide-react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import axios from "axios"; // Import axios
 
 const Profile = () => {
-  const { currentUser, loading, error } = useContext(AuthContext);
+  const { currentUser, loading, error, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    // Make handleLogout async
+    try {
+      // Call the /logout API
+      await axios.post(
+        "http://localhost:5000/logout",
+        {},
+        {
+          // added {} as second argument
+          withCredentials: true, // Include credentials for session/cookie
+        }
+      );
+      logout(); // Call the logout function from AuthContext
+      navigate("/login"); // Redirect to login page
+    } catch (err) {
+      console.error("Logout error:", err);
+      // Optionally, display an error message to the user using a toast or alert
+      // For example:
+      // alert("Failed to logout. Please try again.");
+    }
+  };
 
   if (loading) {
     return (
@@ -65,7 +89,7 @@ const Profile = () => {
             <Key size={20} strokeWidth={1.5} className="icon" />
             <span>Change Password</span>
           </Link>
-          <button className="actionLink">
+          <button className="actionLink" onClick={handleLogout}>
             <LogOut size={20} strokeWidth={1.5} className="icon" />
             <span>Logout</span>
           </button>

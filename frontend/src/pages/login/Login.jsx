@@ -1,50 +1,75 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./style.css";
 import { LockKeyhole, Mail } from "lucide-react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
+import { Toaster, toast } from "sonner";
+
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const { login } = useContext(AuthContext);
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    setError(null);
+    setLoading(true);
 
-    if (email.length === 0) {
-      alert("Email is required");
-    } else if (password.length === 0) {
-      alert("Password is required");
-    } else if (password.length < 8) {
-      alert("Password should be atleast of 8 characters");
+    if (!email) {
+      setError("Email is required");
+      setLoading(false);
+      return;
+    }
+    if (!password) {
+      setError("Password is required");
+      setLoading(false);
+      return;
+    }
+    if (password.length < 8) {
+      setError("Password should be at least 8 characters");
+      setLoading(false);
+      return;
     }
 
-    const response = await axios.post(
-      "http://localhost:5000/login",
-      { email, password },
-      {
-        withCredentials: true,
+    try {
+      console.log("Calling login function from context with:", {
+        email,
+        password,
+      }); // Add this
+      const success = await login({ email, password });
+      console.log("Login function returned:", success); // and this
+
+      if (success) {
+        toast.success("Login successful!");
+        setEmail("");
+        setPassword("");
+        navigate("/profile");
+      } else {
+        setError("Login failed (check credentials)"); // Explicit error
+        toast.error("Login failed. Please check your email and password.");
       }
-    );
-
-    // const data = await response.json();
-    console.log(response);
-
-    setEmail("");
-    setPassword("");
-    alert("Login Success");
-    navigate("/profile");
+    } catch (err) {
+      const errorMessage = err.message || "Login Failed";
+      setError(errorMessage);
+      toast.error(errorMessage);
+      console.error("Login error:", err); // Log the full error
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <main className="signup">
+      <Toaster richColors />
       <section className="signupContainer">
         <div className="signupHeader">
           <h1>Login to Foolivery</h1>
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleLogin}>
           <div className="signupInput">
             <Mail size={22} strokeWidth={1.5} />
             <input
@@ -52,6 +77,7 @@ const Login = () => {
               placeholder="Enter your mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              disabled={loading}
             />
           </div>
 
@@ -62,13 +88,16 @@ const Login = () => {
               placeholder="Enter password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              disabled={loading}
             />
           </div>
-
-          <button type="submit">Login</button>
+          {error && <p className="error-message">{error}</p>}
+          <button type="submit" disabled={loading}>
+            {loading ? "Logging in..." : "Login"}
+          </button>
         </form>
         <p>
-          Don&apos;t have account? <Link to="/signup">Signup</Link>
+          Don&apos;t have an account? <Link to="/signup">Signup</Link>
         </p>
       </section>
     </main>
